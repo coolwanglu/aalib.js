@@ -19,10 +19,12 @@ static jmp_buf buf;
 #ifdef SIGWINCH
 static void handler(int i)
 {
+/*
     __resized = 2;
     signal(SIGWINCH, handler);
     if (iswaiting)
 	longjmp(buf, 1);
+*/
 }
 #endif
 static int stdin_init(struct aa_context *context, int mode)
@@ -48,8 +50,10 @@ static int stdin_getchar(aa_context * c1, int wait)
     struct timeval tv;
 
     if (wait) {
+        /*
 	setjmp(buf);
 	iswaiting = 1;
+    */
     }
     if (__resized == 2) {
 	__resized = 1;
