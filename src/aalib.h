@@ -23,6 +23,7 @@
 #ifndef __AALIB_INCLUDED__
 #define __AALIB_INCLUDED__
 #include <stdio.h>
+#include <stdlib.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

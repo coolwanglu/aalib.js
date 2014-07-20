@@ -4,7 +4,7 @@
 #include "config.h"
 #ifdef CURSES_KBDDRIVER
 #ifdef USE_NCURSES
-#include <ncurses.h>
+#include <curses.h>
 #else
 #include <curses.h>
 #endif

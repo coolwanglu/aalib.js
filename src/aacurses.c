@@ -7,7 +7,7 @@
 #ifdef RENAMED_NCURSES
 #include <curses.h>
 #else
-#include <ncurses.h>
+#include <curses.h>
 #endif
 #else
 #include <curses.h>
