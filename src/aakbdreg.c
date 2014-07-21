@@ -4,6 +4,7 @@
 #include "aaint.h"
 __AA_CONST struct aa_kbddriver * __AA_CONST aa_kbddrivers[] =
 {
+    /*
 #ifdef LINUX_KBDDRIVER
     &kbd_linux_d,
 #endif
@@ -24,6 +25,8 @@ __AA_CONST struct aa_kbddriver * __AA_CONST aa_kbddrivers[] =
 #endif
 #endif
     &kbd_stdin_d,
+    */
+    &kbd_web_d,
     NULL
 };
 int aa_autoinitkbd(struct aa_context *context, int mode)

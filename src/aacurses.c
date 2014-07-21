@@ -132,8 +132,6 @@ __AA_CONST struct aa_driver curses_d =
     curses_setattr,
     curses_print,
     curses_gotoxy,
-    /*curses_getchar,
-       NULL, */
     curses_flush,
     curses_cursor,
 };
