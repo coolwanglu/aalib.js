@@ -27,10 +27,12 @@ int __curses_keyboard;
 #ifdef SIGWINCH
 static void handler(int i)
 {
+    /*
     __resized_curses = 2;
     signal(SIGWINCH, handler);
     if (iswaiting)
 	longjmp(buf, 1);
+    */
 }
 #endif
 static int curses_init(struct aa_context *context, int mode)
@@ -83,8 +85,10 @@ static int curses_getchar(aa_context * c1, int wait)
     int c;
     if (wait) {
 	nodelay(stdscr, FALSE);
+    /*
 	setjmp(buf);
 	iswaiting = 1;
+    */
     } else
 	nodelay(stdscr, TRUE);
     if (__resized_curses == 2) {

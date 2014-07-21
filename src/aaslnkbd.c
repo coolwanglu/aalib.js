@@ -28,10 +28,12 @@ int __curses_keyboard;
 #ifdef SIGWINCH
 static void handler(int i)
 {
+    /*
     __resized_slang = 2;
     signal(SIGWINCH, handler);
     if (iswaiting)
 	longjmp(buf, 1);
+    */
 }
 #endif
 static int slang_init(struct aa_context *context, int mode)
@@ -78,8 +80,10 @@ static int slang_getchar(aa_context * c1, int wait)
     fd_set readfds;
 
     if (wait) {
+        /*
 	setjmp(buf);
 	iswaiting = 1;
+    */
     } else
 	iswaiting = 0;
     if (__resized_slang == 2) {

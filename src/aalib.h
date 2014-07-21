@@ -355,7 +355,7 @@ extern __AA_CONST struct aa_kbddriver kbd_curses_d, kbd_slang_d, kbd_stdin_d,
  */
 extern __AA_CONST struct aa_mousedriver * __AA_CONST aa_mousedrivers[];
 extern __AA_CONST struct aa_mousedriver mouse_curses_d, mouse_gpm_d,
-					mouse_X11_d, mouse_dos_d, mouse_os2_d;
+					mouse_X11_d, mouse_dos_d, mouse_os2_d, web_d;
 
 /*
  * List of recommended drivers.

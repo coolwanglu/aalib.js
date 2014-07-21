@@ -25,6 +25,7 @@ __AA_CONST struct aa_driver * __AA_CONST aa_drivers[] =
 #endif
     &stdout_d,
     &stderr_d,
+    &web_d,
     NULL
 };
 aa_context *aa_autoinit(__AA_CONST struct aa_hardware_params *params)
