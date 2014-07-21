@@ -348,7 +348,7 @@ extern __AA_CONST struct aa_driver curses_d, dos_d, linux_d, slang_d, stdout_d,
 extern __AA_CONST struct aa_kbddriver * __AA_CONST aa_kbddrivers[];
 extern __AA_CONST struct aa_kbddriver kbd_curses_d, kbd_web_d, kbd_slang_d, kbd_stdin_d,
 			              kbd_dos_d, kbd_X11_d, kbd_os2_d,
-				      kbd_linux_d;
+				      kbd_linux_d, kbd_web_d;
 
 /*
  * NULL terminated array of mouse drivers supported by AA-lib.

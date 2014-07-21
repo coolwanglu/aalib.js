@@ -13,16 +13,15 @@ static void aaweb_uninit(aa_context * c)
 }
 static int aaweb_getchar(aa_context * c1, int wait)
 {
-    return AA_NONE:
+    return AA_NONE;
 }
 
 
-__AA_CONST struct aa_kbddriver kbd_aaweb_d =
+__AA_CONST struct aa_kbddriver kbd_web_d =
 {
-    "aaweb", "Curses keyboard driver 1.0",
+    "web", "Curses keyboard driver 1.0",
     0,
     aaweb_init,
     aaweb_uninit,
     aaweb_getchar,
 };
-#endif

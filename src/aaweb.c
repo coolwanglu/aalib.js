@@ -1,6 +1,7 @@
 #include <setjmp.h>
 #include <signal.h>
 #include <stdio.h>
+#include <emscripten.h>
 #include "config.h"
 #include "aalib.h"
 #include "aaint.h"
@@ -18,6 +19,7 @@ static int web_init(__AA_CONST struct aa_hardware_params *p, __AA_CONST void *no
 {
     dest->font=NULL;
     dest->supported = AA_NORMAL_MASK | AA_DIM_MASK | AA_BOLD_MASK | AA_BOLDFONT_MASK | AA_REVERSE_MASK;
+    aa_recommendlowkbd("web");
     aaweb_init();
     return 1;
 }
@@ -61,6 +63,7 @@ static void web_print(aa_context * c, __AA_CONST char *text)
 }
 static void web_flush(aa_context * c)
 {
+    emscripten_sleep(1);
 }
 static void web_gotoxy(aa_context * c, int x, int y)
 {

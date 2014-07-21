@@ -4,6 +4,7 @@
 #include "aaint.h"
 __AA_CONST struct aa_driver * __AA_CONST aa_drivers[] =
 {
+    /*
 #ifdef DJGPP
     &dos_d,
 #else
@@ -25,6 +26,7 @@ __AA_CONST struct aa_driver * __AA_CONST aa_drivers[] =
 #endif
     &stdout_d,
     &stderr_d,
+    */
     &web_d,
     NULL
 };

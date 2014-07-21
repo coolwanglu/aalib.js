@@ -29,6 +29,7 @@ $EM_DIR/emcc \
     $1.bc \
     -o $1.js\
     -Oz \
+    -s ASYNCIFY=1 \
     --memory-init-file 1 \
     --js-library aaweb.js \
     --preload-file pdcfont.bmp \
