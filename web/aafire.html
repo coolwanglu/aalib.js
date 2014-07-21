@@ -1,0 +1,41 @@
+<!doctype html>
+<!--  vim: set sw=2 ts=2 et : --> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Source+Code+Pro'>
+    <link rel="stylesheet" href="aafire.css">
+  </head>
+  <body>
+    <a href="https://github.com/coolwanglu/aalib.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+    <div class="container">
+      <div class="jumbotron">
+        <code>aafire</code>
+      </div>
+      <canvas id="aa-canvas"></canvas>
+      <br>
+      <br>
+      <div class="footer">
+        <p>© <a target="_blank" href="http://coolwanglu.github.io/">Lu Wang</a> 2014</p>
+      </div>
+    </div>
+    <div id="aa-font-test" class="invisible"></div>
+    <script>
+      var Module = {
+        print: function() { 
+            console.group.apply(console, arguments); 
+            console.groupEnd();
+        },
+        printErr: function() { 
+            console.group.apply(console, arguments); 
+            console.groupEnd();
+        },
+      };
+    </script>
+    <script src="aafire.js"></script>
+  </body>
+</html>
