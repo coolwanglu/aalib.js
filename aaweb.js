@@ -6,9 +6,24 @@ var LibraryAAWeb = {
     rows: 25,
     x: 0,
     y: 0,
+    attr: 0,
+    font: 'Source Code Pro',
+    font_size: 12, 
+    font_str: '',
+    bold_font_str: '',
+    fg_color: '#fff',
+    bg_color: '#000',
+    dim_color: '#777',
+
+    MASK_NORMAL: 1,
+    MASK_DIM: 2,
+    MASK_BOLD: 4,
+    MASK_BOLDFONT: 8,
+    MASK_REVERSE: 16,
   },
   aaweb_init: function() {
-    var font_test_node = vimjs.font_test_node;
+    var font_test_node = document.getElementById('aa-font-test');
+    font_test_node.style.font = aaweb.font_size + 'px "' + aaweb.font + '"';
     font_test_node.innerHTML = 'm';
 
     var devicePixelRatio = window.devicePixelRatio;
@@ -22,7 +37,9 @@ var LibraryAAWeb = {
     canvas_node.style.height = canvas_node.height / devicePixelRatio + canvas_node.offsetHeight - canvas_node.clientHeight + 'px';
 
     var ctx = aaweb.ctx = canvas_node.getContext('2d');
-    ctx.fillStyle = 'white';
+    aaweb.font_str = aaweb.font_size * devicePixelRatio + 'px "' + aaweb.font + '"';
+    aaweb.bold_font_str = 'bold ' + aaweb.font_str;
+    ctx.textBaseline = 'bottom';
   },
   aaweb_get_width: function() {
     return aaweb.cols;
@@ -31,10 +48,25 @@ var LibraryAAWeb = {
     return aaweb.rows;
   },
   aaweb_setattr: function(attr) {
+    aaweb.attr = attr;
   },
   aaweb_print: function(p) {
     p = Pointer_stringify(p);
-    aaweb.ctx.fillText(p, aaweb.x * aaweb.char_width, (aaweb.y + 1) * aaweb.char_height);
+    var x = aaweb.x * aaweb.char_width;
+    var y = aaweb.y * aaweb.char_height;
+    var w = p.length * aaweb.char_width;
+    var ctx = aaweb.ctx;
+    var attr = aaweb.attr;
+    ctx.fillStyle = (attr & aaweb.MASK_REVERSE) ? aaweb.fg_color : aaweb.bg_color;
+    ctx.fillRect(x, y, w, aaweb.char_height);
+    ctx.fillStyle = (attr & aaweb.MASK_DIM) 
+        ? aaweb.dim_color 
+        : ((attr & aaweb.MASK_REVERSE) 
+            ? aaweb.bg_color 
+            : aaweb.fg_color);
+    ctx.font = (aaweb.attr & (aaweb.MASK_BOLD | aaweb.MASK_BOLDFONT)) ? aaweb.bold_font_str : aaweb.font_str;
+    ctx.fillText(p, x, y + aaweb.char_height, w);
+    aaweb.x += p.length;
   },
   aaweb_gotoxy: function(x,y) {
     aaweb.x = x;
