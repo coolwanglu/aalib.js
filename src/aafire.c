@@ -2,6 +2,7 @@
 #include <string.h>
 #include <malloc.h>
 #include <stdlib.h>
+#include <emscripten.h>
 #include "aalib.h"
 
 #define XSIZ aa_imgwidth(context)
@@ -147,6 +148,7 @@ game (void)
   while (aa_getevent(context, 0) == AA_NONE)
     {
       drawfire ();
+      emscripten_sleep(1);
     }
 }
 int 

@@ -1,7 +1,6 @@
 #include <setjmp.h>
 #include <signal.h>
 #include <stdio.h>
-#include <emscripten.h>
 #include "config.h"
 #include "aalib.h"
 #include "aaint.h"
@@ -63,7 +62,6 @@ static void web_print(aa_context * c, __AA_CONST char *text)
 }
 static void web_flush(aa_context * c)
 {
-    emscripten_sleep(1);
 }
 static void web_gotoxy(aa_context * c, int x, int y)
 {
