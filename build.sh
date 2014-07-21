@@ -30,7 +30,7 @@ cp ../src/$1 $1.bc
 # Use vim.js as filename to generate vim.js.mem
 $EM_DIR/emcc \
     $1.bc \
-    -o $1.html\
+    -o $1.js\
     -Oz \
     --memory-init-file 1 \
     --js-library aaweb.js \
@@ -39,8 +39,6 @@ $EM_DIR/emcc \
 popd
 }
 
-do_config
+#do_config
 do_make
-for f in aainfo aatest aafire aasavefont; do
-    do_link $f
-done
+do_link aa_fire

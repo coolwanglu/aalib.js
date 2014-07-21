@@ -84,4 +84,3 @@ __AA_CONST struct aa_driver web_d =
     web_flush,
     web_cursor,
 };
-#endif

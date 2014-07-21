@@ -340,7 +340,7 @@ extern __AA_CONST char * __AA_CONST aa_dithernames[];
  */
 extern __AA_CONST struct aa_driver * __AA_CONST aa_drivers[];
 extern __AA_CONST struct aa_driver curses_d, dos_d, linux_d, slang_d, stdout_d,
-				   stderr_d, X11_d, os2vio_d;
+				   stderr_d, X11_d, os2vio_d, web_d;
 
 /*
  * NULL-terminated array of keyboard drivers available in AA_lib.
@@ -355,7 +355,7 @@ extern __AA_CONST struct aa_kbddriver kbd_curses_d, kbd_slang_d, kbd_stdin_d,
  */
 extern __AA_CONST struct aa_mousedriver * __AA_CONST aa_mousedrivers[];
 extern __AA_CONST struct aa_mousedriver mouse_curses_d, mouse_gpm_d,
-					mouse_X11_d, mouse_dos_d, mouse_os2_d, web_d;
+       mouse_X11_d, mouse_dos_d, mouse_os2_d;
 
 /*
  * List of recommended drivers.
