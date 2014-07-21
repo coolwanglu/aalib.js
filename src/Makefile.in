@@ -79,7 +79,7 @@ system = @system@
 AUTOMAKE_OPTIONS = foreign #include-deps
 EXTRA_DIST = config.dos config.os2 Makefile.dos Makefile.os2 aados.c aadoskbd.c aadosmou.c aaos2.c  aaos2kbd.c aaos2mou.c  aaint.h aamktabl.h aaxint.h toc.c
 lib_LTLIBRARIES = libaa.la
-libaa_la_SOURCES =         aafont.c        aafonts.c        aavyhen.c        aamktabl.c        aamem.c        aaprintf.c        aahelp.c        aaslnkbd.c        aaslang.c        aafastre.c        aalinux.c        aalinuxkbd.c        aax.c        aaxkbd.c        aaxmouse.c        fontgl.c        font16.c        font14.c        fontx16.c        fontx13.c        fontx13b.c        fontcour.c        aarec.c        font9.c        font8.c        fontline.c        aacurses.c  aaweb.c       aacurkbd.c        aacurmou.c        aalib.c        aaflush.c        aarender.c        aaout.c        aain.c        aaedit.c        aaregist.c        aakbdreg.c        aagpm.c         aamoureg.c        aasave.c        aastdout.c        aastdin.c        aaparse.c        aaimgwidth.c        aaimgheight.c        aascrwidth.c        aascrheight.c        aammwidth.c        aammheight.c        aaimage.c        aatext.c        aacurrfnt.c        aaattrs.c        aaputpixel.c        aarecfunc.c 
+libaa_la_SOURCES =         aafont.c        aafonts.c        aavyhen.c        aamktabl.c        aamem.c        aaprintf.c        aahelp.c        aaslnkbd.c        aaslang.c        aafastre.c        aalinux.c        aalinuxkbd.c        aax.c        aaxkbd.c        aaxmouse.c        fontgl.c        font16.c        font14.c        fontx16.c        fontx13.c        fontx13b.c        fontcour.c        aarec.c        font9.c        font8.c        fontline.c        aacurses.c  aaweb.c       aacurkbd.c aawebkbd.c       aacurmou.c        aalib.c        aaflush.c        aarender.c        aaout.c        aain.c        aaedit.c        aaregist.c        aakbdreg.c        aagpm.c         aamoureg.c        aasave.c        aastdout.c        aastdin.c        aaparse.c        aaimgwidth.c        aaimgheight.c        aascrwidth.c        aascrheight.c        aammwidth.c        aammheight.c        aaimage.c        aatext.c        aacurrfnt.c        aaattrs.c        aaputpixel.c        aarecfunc.c 
 
 libaa_la_LDFLAGS = @LDFLAGS@ -version-info 1:4:0
 bin_PROGRAMS = aainfo aatest aafire aasavefont
@@ -113,7 +113,7 @@ libaa_la_OBJECTS =  aafont.lo aafonts.lo aavyhen.lo aamktabl.lo aamem.lo \
 aaprintf.lo aahelp.lo aaslnkbd.lo aaslang.lo aafastre.lo aalinux.lo \
 aalinuxkbd.lo aax.lo aaxkbd.lo aaxmouse.lo fontgl.lo font16.lo \
 font14.lo fontx16.lo fontx13.lo fontx13b.lo fontcour.lo aarec.lo \
-font9.lo font8.lo fontline.lo aacurses.lo aaweb.lo aacurkbd.lo aacurmou.lo \
+font9.lo font8.lo fontline.lo aacurses.lo aaweb.lo aacurkbd.lo aawebkbd.lo aacurmou.lo \
 aalib.lo aaflush.lo aarender.lo aaout.lo aain.lo aaedit.lo aaregist.lo \
 aakbdreg.lo aagpm.lo aamoureg.lo aasave.lo aastdout.lo aastdin.lo \
 aaparse.lo aaimgwidth.lo aaimgheight.lo aascrwidth.lo aascrheight.lo \

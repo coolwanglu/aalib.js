@@ -6,7 +6,7 @@ var LibraryAAWeb = {
     rows: 25,
     x: 0,
     y: 0,
-  }
+  },
   aaweb_init: function() {
     var font_test_node = vimjs.font_test_node;
     font_test_node.innerHTML = 'm';

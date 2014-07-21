@@ -25,9 +25,6 @@ $EM_DIR/emmake make -j8
 do_link() {
 pushd web
 cp ../src/$1 $1.bc 
-#cp vim_lib.js usr/local/share/vim/example.js
-
-# Use vim.js as filename to generate vim.js.mem
 $EM_DIR/emcc \
     $1.bc \
     -o $1.js\
@@ -41,4 +38,4 @@ popd
 
 #do_config
 do_make
-do_link aa_fire
+do_link aafire
