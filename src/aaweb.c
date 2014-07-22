@@ -15,6 +15,7 @@ int aaweb_get_width(void);
 int aaweb_get_height(void);
 void aaweb_setattr(int);
 void aaweb_print(const char*);
+void aaweb_flush(void);
 void aaweb_gotoxy(int,int);
 
 static int web_init(__AA_CONST struct aa_hardware_params *p, __AA_CONST void *none, struct aa_hardware_params *dest, void **param)
@@ -72,6 +73,7 @@ static void web_print(aa_context * c, __AA_CONST char *text)
 }
 static void web_flush(aa_context * c)
 {
+    aaweb_flush();
 }
 static void web_gotoxy(aa_context * c, int x, int y)
 {
