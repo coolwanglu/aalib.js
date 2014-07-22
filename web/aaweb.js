@@ -9,6 +9,7 @@ var LibraryAAWeb = {
     attr: 0,
     font: 'Source Code Pro',
     font_size: 12, 
+    font_str: '',
     bg_color: '#000',
     dim_color: '#555',
     normal_color: '#aaa',
@@ -36,8 +37,52 @@ var LibraryAAWeb = {
     canvas_node.style.height = canvas_node.height / devicePixelRatio + canvas_node.offsetHeight - canvas_node.clientHeight + 'px';
 
     var ctx = aaweb.ctx = canvas_node.getContext('2d');
-    ctx.font = aaweb.font_size * devicePixelRatio + 'px "' + aaweb.font + '"';
+    ctx.font = aaweb.font_str = aaweb.font_size * devicePixelRatio + 'px "' + aaweb.font + '"';
     ctx.textBaseline = 'bottom';
+  },
+  aaweb_build_font_data: function() {
+    var char_width = aaweb.char_width;
+    var char_height = aaweb.char_height;
+    var canvas_height = 256 * char_height;
+    var data = _malloc(canvas_height);
+
+    var canvas = document.createElement('canvas');
+    canvas.width = char_width;
+    canvas.height = canvas_height;
+    var ctx = canvas.getContext('2d');
+    ctx.font = aaweb.font_str;
+    ctx.textBaseline = 'bottom';
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, char_width, canvas_height);
+    ctx.fillStyle = 'white';
+    for(var i = 0; i < 256; ++i) {
+      ctx.fillText(String.fromCharCode(i), 0, (i+1)*char_height, char_width);
+    }
+    var canvas2 = document.createElement('canvas');
+    canvas2.width = 8;
+    canvas2.height = canvas_height;
+    var ctx2 = canvas2.getContext('2d');
+    ctx2.drawImage(canvas, 0, 0, char_width, canvas_height, 0, 0, 8, canvas_height);
+    var img_data = ctx2.getImageData(0, 0, 8, canvas_height).data;
+    var off = 0;
+    var ptr = data;
+    for(var y = 0; y < canvas_height; ++y) {
+      var v = 0;
+      for(var x = 0; x < 8; ++x) {
+        var l = (0.2126 * img_data[off++]
+          + 0.7152 * img_data[off++]
+          + 0.0722 * img_data[off++]);
+        ++off;
+
+        v <<= 1;
+        if(l > 127) v |= 1;
+      }
+      HEAP8[ptr++] = v & 255;
+    }
+    return data;
+  },
+  aaweb_get_char_height: function() {
+    return aaweb.char_height;
   },
   aaweb_get_width: function() {
     return aaweb.cols;

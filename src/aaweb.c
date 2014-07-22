@@ -6,8 +6,11 @@
 #include "aaint.h"
 __AA_CONST struct aa_driver web_d;
 int __resized_web;
+aa_font font;
 
 void aaweb_init(void);
+const char * aaweb_build_font_data(void);
+int aaweb_get_char_height(void);
 int aaweb_get_width(void);
 int aaweb_get_height(void);
 void aaweb_setattr(int);
@@ -16,10 +19,17 @@ void aaweb_gotoxy(int,int);
 
 static int web_init(__AA_CONST struct aa_hardware_params *p, __AA_CONST void *none, struct aa_hardware_params *dest, void **param)
 {
-    dest->font=NULL;
+    aaweb_init();
+    
+    font.name = "web";
+    font.shortname = "web";
+    font.height = aaweb_get_char_height();
+    font.data = aaweb_build_font_data();
+    aa_registerfont(&font);
+
+    dest->font=&font;
     dest->supported = AA_NORMAL_MASK | AA_DIM_MASK | AA_BOLD_MASK | AA_REVERSE_MASK;
     aa_recommendlowkbd("web");
-    aaweb_init();
     return 1;
 }
 static void web_uninit(aa_context * c)
