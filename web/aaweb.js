@@ -37,8 +37,8 @@ var LibraryAAWeb = {
     font_test_node.innerHTML = 'm';
 
     var devicePixelRatio = window.devicePixelRatio;
-    var char_height = aaweb.char_height = Math.max(1, font_test_node.clientHeight * devicePixelRatio);
-    var char_width = aaweb.char_width = Math.max(1, font_test_node.clientWidth * devicePixelRatio);
+    var char_height = aaweb.char_height = Math.ceil(Math.max(1, font_test_node.clientHeight * devicePixelRatio));
+    var char_width = aaweb.char_width = Math.ceil(Math.max(1, font_test_node.clientWidth * devicePixelRatio));
 
     var canvas_node = aaweb.canvas_node = document.getElementById('aa-canvas');
     canvas_node.width = aaweb.cols * aaweb.char_width;
