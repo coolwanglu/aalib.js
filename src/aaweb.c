@@ -28,7 +28,7 @@ static int web_init(__AA_CONST struct aa_hardware_params *p, __AA_CONST void *no
     aa_registerfont(&font);
 
     dest->font=&font;
-    dest->supported = AA_NORMAL_MASK | AA_DIM_MASK | AA_BOLD_MASK | AA_REVERSE_MASK;
+    dest->supported = AA_NORMAL_MASK | AA_DIM_MASK | AA_BOLD_MASK | AA_BOLDFONT_MASK | AA_REVERSE_MASK;
     aa_recommendlowkbd("web");
     return 1;
 }

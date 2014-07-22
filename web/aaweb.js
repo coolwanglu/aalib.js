@@ -11,15 +11,15 @@ var LibraryAAWeb = {
     font_size: 12, 
     font_str: '',
     bg_color: '#000',
-    dim_color: '#555',
-    normal_color: '#aaa',
-    bold_color: '#fff',
+    dim_color: '#777',
+    fg_color: '#fff',
 
-    MASK_NORMAL: 1,
-    MASK_DIM: 2,
-    MASK_BOLD: 4,
-    MASK_BOLDFONT: 8,
-    MASK_REVERSE: 16,
+    AA_NORMAL: 0,
+    AA_DIM: 1,
+    AA_BOLD: 2,
+    AA_BOLDFONT: 3,
+    AA_REVERSE: 4,
+    AA_SPECIAL: 5
   },
   aaweb_init: function() {
     var font_test_node = document.getElementById('aa-font-test');
@@ -100,16 +100,25 @@ var LibraryAAWeb = {
     var w = p.length * aaweb.char_width;
     var ctx = aaweb.ctx;
     var bg_style = aaweb.bg_color;
-    var fg_style = aaweb.normal_color;
-    var attr = aaweb.attr;
-    if(attr & aaweb.MASK_DIM) 
+    var fg_style = aaweb.fg_color;
+    ctx.font = aaweb.font_str;
+    switch(aaweb.attr) {
+      case aaweb.AA_NORMAL:
+      case aaweb.AA_SPECIAL:
+      default:
+        break;
+      case aaweb.AA_DIM:
         fg_style = aaweb.dim_color;
-    if(attr & aaweb.MASK_BOLD)
-        fg_style = aaweb.bold_color;
-    if(attr & aaweb.MASK_REVERSE) {
+        break;
+      case aaweb.AA_BOLD:
+      case aaweb.AA_BOLDFONT:
+        ctx.font = 'bold ' + aaweb.font_str;
+        break;
+      case aaweb.AA_REVERSE:
         var tmp = fg_style;
         fg_style = bg_style;
         bg_style = tmp;
+        break;
     }
         
     ctx.fillStyle = bg_style;
